@@ -1,0 +1,361 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+
+
+html {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(#FAE1C5, transparent 90%),
+				linear-gradient(10deg, #f5f5f5, transparent),
+				#FAE1C5 url(../images/cocina.gif);
+	
+}
+
+body {
+	position: relative;
+	font-family: 'Merriweather Sans', sans-serif;
+	
+}
+
+
+#intro,
+#questions,
+#end {
+	width: 90%;
+	position: relative;
+	text-align: center;
+	margin: 15px auto 0 auto;
+	padding: 25px;
+	/*background-color: SeaShell;*/
+}
+
+#questions,
+#intro {
+	display: none;
+
+}
+
+
+
+h1, 
+h2,
+h3,
+h4,
+p {
+	color: #FFFAF0;
+
+	text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+
+
+
+.push_button {
+	position: relative;
+	color: #696969;
+	font-size: 0.813em;
+	padding: 1.250em;
+	border-radius: 15px;
+
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+
+	-webkit-box-shadow: 0px 5px 1px #b9b9b9;
+	-mox-box-shadow: 0px 5px 1px #b9b9b9;
+	box-shadow: 0px 5px 1px #b9b9b9;
+}
+.push_button:active {
+	-webkit-box-shadow: 0px 2px 1px #b9b9b9;
+	-mox-box-shadow: 0px 2px 1px #b9b9b9;
+	box-shadow: 0px 2px 1px #b9b9b9;
+	position: relative;
+	top: 5px;
+}
+/**********************
+	Intro Styles
+**********************/
+#intro h1 {
+
+	margin: 2em auto;
+	font-size: 2.35rem;
+}
+
+#intro h2 {
+	margin-top: 3em;
+	margin-bottom: 1.5em;
+	font-size: 0.825rem;
+}
+
+#intro button {
+	margin: 1rem auto;
+	padding: 10px;
+}
+/**********************
+	Question styles
+**********************/
+.num-correct {
+	font-size: 0.625rem;
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+
+.question-info {
+	display: none;
+	margin: 15px auto;
+	clear: both;
+
+}
+
+#questions {
+	font-size: 0.625rem;
+
+}
+
+#questions h1 {
+	font-size: 1rem;
+	margin-bottom: 25px;
+}
+
+#question-container {
+	
+	margin-top: 2em;
+	/*background-color: LawnGreen;*/
+}
+
+#question-container h1 {
+	clear: both;
+}
+
+
+
+#question-container h2:first-of-type {
+	position: relative;
+    /*right: 230px;*/
+	float: left;
+	margin-bottom: 4.26em;
+}
+
+#question-container h2:first-of-type + h2 {
+	position: relative;
+	/*top: -22px;*/
+	float: right;
+}
+
+
+#continue {
+	display: none;
+}
+#next-question,
+#continue {
+	float: right;
+	margin-top: 10px;
+}
+#next-question:hover,
+#continue:hover {
+	cursor: pointer;
+}
+#next-question i,
+#continue i {
+	margin-left: 2px;
+}
+.next {
+	float: right;
+}
+
+.submit-answer {
+  background: #9ca3a8;
+  background-image: -webkit-linear-gradient(top, #9ca3a8, #c4cbcf);
+  background-image: -moz-linear-gradient(top, #9ca3a8, #c4cbcf);
+  background-image: -ms-linear-gradient(top, #9ca3a8, #c4cbcf);
+  background-image: -o-linear-gradient(top, #9ca3a8, #c4cbcf);
+  background-image: linear-gradient(to bottom, #9ca3a8, #c4cbcf);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  width: 220px;
+  margin: 12px 0;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: px;
+  padding: 10px 0;
+  text-decoration: none;
+}
+
+.submit-answer:hover {
+
+	background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.correct-answer {
+  background: #1dc251;
+  background-image: -webkit-linear-gradient(top, #1dc251, #497a6b);
+  background-image: -moz-linear-gradient(top, #1dc251, #497a6b);
+  background-image: -ms-linear-gradient(top, #1dc251, #497a6b);
+  background-image: -o-linear-gradient(top, #1dc251, #497a6b);
+  background-image: linear-gradient(to bottom, #1dc251, #497a6b);
+}
+
+.wrong-answer {
+  background: #eb0909;
+  background-image: -webkit-linear-gradient(top, #eb0909, #b55555);
+  background-image: -moz-linear-gradient(top, #eb0909, #b55555);
+  background-image: -ms-linear-gradient(top, #eb0909, #b55555);
+  background-image: -o-linear-gradient(top, #eb0909, #b55555);
+  background-image: linear-gradient(to bottom, #eb0909, #b55555);
+}
+
+/**********************
+	Game End
+**********************/
+#end {
+	position: relative;
+	top: 100px;
+}
+
+#end h1 {
+	text-transform: uppercase;
+	font-size: 1.26rem;
+	margin: 0 auto 10px auto;
+}
+
+#end h2:first-of-type {
+	font-size: 0.85rem;
+	margin: 15px auto;
+}
+
+
+
+#end h3 {
+	font-size: 0.85rem;
+	margin-top: 25px;
+}
+
+#end h4 {
+	margin: 25px 0;
+	color: slateGrey;
+}
+
+#play-again {
+	font-size: 0.824rem;
+	cursor: pointer;
+	
+}
+
+#play-again p{
+	color: #696969;
+}
+
+.again {
+	float: right;
+	margin: 15px 15px 0 5px;
+}
+/**********************
+	media queries
+**********************/
+
+@media (min-width: 764px){
+	h1 {
+	
+		font-size: 2rem;
+
+	}
+	#intro {
+		margin-top: -50px;
+		padding: 0;
+	}
+	#intro h1 {
+		margin-bottom: 10px;
+		font-size: 6em;
+	}
+	#intro h2 {
+		margin-top: 3em;
+		margin-bottom: 1.5em;
+		font-size: 2em;
+	}
+
+	.num-correct {
+		font-size: 1rem;
+	}
+
+	#questions {
+		font-size: 1em;
+	}
+	#question-container {
+	
+		margin-top: 5em;
+		/*background-color: LawnGreen;*/
+	}
+    #question-container h1 {
+    	font-size: 2rem;
+    }
+	#question-container h2:first-of-type {
+		position: relative;
+	    /*right: 230px;*/
+		float: left;
+		margin-bottom: 4.26em;
+		left: 125px;
+	}	
+	#question-container h2:first-of-type + h2 {
+		position: relative;
+		/*top: -22px;*/
+		float: right;
+		right: 125px;
+	}
+    
+    #end h1 {
+		text-transform: uppercase;
+		font-size: 3.26rem;
+		margin: 0 auto 10px auto;
+	}	
+    #end h3,
+    #end h2 {
+		font-size: 2.3rem;
+		margin-top: 25px;
+	}
+
+	#end h4 {
+		font-size: 1.6rem;
+		margin: 25px 0;
+		color: slateGrey;
+	}
+
+	#play-again {
+		font-size: 0.824rem;
+		cursor: pointer;
+		
+	}
+
+	#play-again p{
+		color: #696969;
+	}
+
+	.again {
+		float: right;
+		margin: 15px 15px 0 5px;
+	}
+	
+}
