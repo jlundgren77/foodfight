@@ -6,16 +6,45 @@ $(document).ready(function(){
 		$('#questions').fadeIn(2000);
         loadQuestion();
 		
+	}),
+    
+    //load new question on click of next question
+	$('#next-question').click(function(event){
+		event.preventDefault();
+		$('#question-container').fadeOut(500);
+        $('#next-question').fadeOut(500);
+        setTimeout(loadQuestion, 500);
+        $('#question-container').fadeIn(1000);
+        $('#next-question').fadeIn(1000);
+		if (questionIndex == 10)
+		{
+			alert("end of game");
+		}
 	})
 
-
+    var questionIndex = 0;
 	function loadQuestion(){
-		var questionIndex = 0;
-		$('.category').append(questions[questionIndex].category);
-		console.log(questions[questionIndex].question);
+		
+		var answersHTML = ""
+		$('.category').text(questions[questionIndex].category);
+		$('.question').text(questions[questionIndex].question);
+		$('.question-number').text("question " + (questionIndex + 1) + " of 10");
+		
+		//loop through answers array and create buttons
+		for (answer in questions[questionIndex].answers) {
+			var question = questions[questionIndex].answers[answer];
+
+			
+			answersHTML += "<li><button class='submit-answer'>" + question + "</button></li>";
+			
+		}
+		var answersList = document.getElementById('answers');
+		answersList.innerHTML = answersHTML;
+        questionIndex = questionIndex + 1;
+        
 	};
 		
-    //create questins
+    //create questions
     var questions = [{
 	    	question: 'What canned food did Andy Warhol paint in 1962?',
 	    	answers: ['Spam', 'Tuna', "Campbell's Soup", 'SpaghettiOs'],
@@ -34,7 +63,7 @@ $(document).ready(function(){
     	{
     		question: 'How many tablespoons equal a cup?',
     		answers: ['4', '6', '12', '16'],
-    		category: 'Measurments',
+    		category: 'Measurements',
     		correct: '16',
     		information: 'One cup is equal to 16 tablespoons'
     	},
