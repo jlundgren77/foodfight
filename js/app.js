@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#begin').click(function(){
-		
+		questionIndex = 0;
 		$('#intro').fadeOut(500);
 
 		$('#questions').fadeIn(2000);
@@ -9,27 +9,39 @@ $(document).ready(function(){
 	}),
     
     //load new question on click of next question
-	$('#next-question').click(function(event){
+	$('#continue').click(function(event){
 		event.preventDefault();
 		$('#question-container').fadeOut(500);
-        $('#next-question').fadeOut(500);
+        $('#continue').fadeOut(500);
+        hideInfo();
         setTimeout(loadQuestion, 500);
         $('#question-container').fadeIn(1000);
-        $('#next-question').fadeIn(1000);
+        $('#continue').fadeIn(1000);
 		if (questionIndex == 10)
 		{
-			alert("end of game");
+			endGame();
 		}
+	}),
+
+	$('#answers').on('click', '.submit-answer', function(event){
+		event.preventDefault();
+		
+		checkAnswer($(this).text(), $(this));
+
 	})
+	
 
     var questionIndex = 0;
+    var correct = 0;
 	function loadQuestion(){
+		enableButtons();
 		
 		var answersHTML = ""
+		
 		$('.category').text(questions[questionIndex].category);
 		$('.question').text(questions[questionIndex].question);
 		$('.question-number').text("question " + (questionIndex + 1) + " of 10");
-		
+		$('.num-correct').text("correct answers: " + correct);
 		//loop through answers array and create buttons
 		for (answer in questions[questionIndex].answers) {
 			var question = questions[questionIndex].answers[answer];
@@ -41,7 +53,74 @@ $(document).ready(function(){
 		var answersList = document.getElementById('answers');
 		answersList.innerHTML = answersHTML;
         questionIndex = questionIndex + 1;
-        
+       
+	};
+    
+	function endGame(){
+		$('#questions').fadeOut(500);
+		$('#end').fadeIn(2000);
+		var rank = getRank();
+		$('.rank').text(rank);
+		$('.score').text(correct);
+        questionIndex = 0;
+	};
+
+	function getRank(){
+		var msg = ""
+		if (correct < 1) {
+			msg += "Dishwasher";
+		}
+		else if (correct < 3) {
+			msg += "Fast Food Fry Cook";
+		}
+		else if (correct < 5) {
+			msg += "Line Cook'";
+		}
+		else if (correct < 7) {
+			msg += "Head Chef";
+		}
+		else if (correct < 10) {
+			msg += "Restaurant Owner";
+		}
+		else {
+			msg += "Celebrity Chef"
+		}
+		return msg;
+	};
+
+	function checkAnswer(answer, button){
+		
+        if (questions[questionIndex-1].correct == answer){
+			button.addClass('correct-answer');
+			updateScore();
+			disableButtons();
+		}
+		else {
+			button.addClass('wrong-answer');
+			 disableButtons();
+		
+		}
+		showInfo();
+	};
+    
+    function showInfo(){
+       var info = questions[questionIndex-1].information;
+       $('.question-info').text(info); 
+       $('.question-info').show();
+    };
+
+    function hideInfo(){
+    	$('.question-info').fadeOut(500);
+    };
+	function disableButtons(){
+		$('.submit-answer').prop('disabled', true).addClass('disable');
+	};
+
+	function enableButtons() {
+		$('.submit-answer').prop('disabled', false).removeClass('disable');
+	};
+	function updateScore(){
+		correct += 1;
 	};
 		
     //create questions
@@ -49,7 +128,7 @@ $(document).ready(function(){
 	    	question: 'What canned food did Andy Warhol paint in 1962?',
 	    	answers: ['Spam', 'Tuna', "Campbell's Soup", 'SpaghettiOs'],
 	    	category: 'Food Stars',
-	    	correct: "Campell's Soup",
+	    	correct: "Campbell's Soup",
 	    	information: "Campbell's Soup Cans ushered in the pop art movement in the U.S."
 	    },
     	{

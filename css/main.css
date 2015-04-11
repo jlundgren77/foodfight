@@ -63,7 +63,22 @@ p {
                0 20px 20px rgba(0,0,0,.15);
 }
 
+.question-info  {
+	color: #EF6B4C;
 
+	text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
 
 .push_button {
 	position: relative;
@@ -159,19 +174,17 @@ p {
 }
 
 
-#continue {
-	display: none;
-}
-#next-question,
+
+
 #continue {
 	float: right;
 	margin-top: 10px;
 }
-#next-question:hover,
+
 #continue:hover {
 	cursor: pointer;
 }
-#next-question i,
+
 #continue i {
 	margin-left: 2px;
 }
@@ -179,7 +192,8 @@ p {
 	float: right;
 }
 
-.submit-answer {
+.submit-answer,
+.disable {
   background: #9ca3a8;
   background-image: -webkit-linear-gradient(top, #9ca3a8, #c4cbcf);
   background-image: -moz-linear-gradient(top, #9ca3a8, #c4cbcf);
@@ -210,7 +224,8 @@ p {
   cursor: pointer;
 }
 
-.correct-answer {
+.correct-answer,
+.correct-answer:hover {
   background: #1dc251;
   background-image: -webkit-linear-gradient(top, #1dc251, #497a6b);
   background-image: -moz-linear-gradient(top, #1dc251, #497a6b);
@@ -219,7 +234,8 @@ p {
   background-image: linear-gradient(to bottom, #1dc251, #497a6b);
 }
 
-.wrong-answer {
+.wrong-answer,
+.wrong-answer:hover {
   background: #eb0909;
   background-image: -webkit-linear-gradient(top, #eb0909, #b55555);
   background-image: -moz-linear-gradient(top, #eb0909, #b55555);
@@ -227,6 +243,11 @@ p {
   background-image: -o-linear-gradient(top, #eb0909, #b55555);
   background-image: linear-gradient(to bottom, #eb0909, #b55555);
 }
+
+.disable:not(.correct-answer):not(.wrong-answer) {
+	background: #9ca3a8;
+}
+
 
 /**********************
 	Game End
