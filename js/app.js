@@ -28,6 +28,13 @@ $(document).ready(function(){
 		
 		checkAnswer($(this).text(), $(this));
 
+	}),
+
+	$('#play-again').click(function(event){
+		event.preventDefault();
+		playAgain();
+		console.log('play again');
+
 	})
 	
 
@@ -121,7 +128,21 @@ $(document).ready(function(){
 	};
 	function updateScore(){
 		correct += 1;
+		$('.num-correct').text("correct answers: " + correct);
 	};
+
+	function resetScore(){
+		correct = 0;
+		$('.num-correct').text("correct answers: " + correct);		
+
+	};
+
+	function playAgain(){
+		resetScore();
+		$('#end').fadeOut(400);
+		$('#questions').fadeIn(500);
+		
+	}
 		
     //create questions
     var questions = [{
@@ -170,7 +191,7 @@ $(document).ready(function(){
     	{
     		question: 'What is Made in Mexicos Jalisco province from blue agave?',
     		answers: ['Mezcal', 'Tequila', 'Grappa', 'Pisco'],
-    		category: 'Wine, Beer, and Spirits',
+    		category: 'Beverages',
     		correct: 'Tequila',
     		information:'Tequila is a regional specific name for distilled spirit from blue agave'
     	},
@@ -192,7 +213,7 @@ $(document).ready(function(){
     	{
     		question: 'What makes a Martini a Gibson?',
     		answers: ['No Vermouth', 'Olives', 'Lemon Twist', 'Pickled Onion'],
-    		category: 'Wine, Beer, and Spirits',
+    		category: 'Beverages',
     		correct: 'Pickled Onion',
     		information: 'The Gibson is drink consisting of gin, vermouth, and an onion'
     	}];
