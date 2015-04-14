@@ -157,6 +157,10 @@ p {
 	line-height: 1.3em;
 }
 
+#questions h2 {
+	font-size: 0.62rem;
+}
+
 #question-container {
 	
 	margin-top: 2em;
@@ -186,6 +190,7 @@ p {
 
 
 #continue {
+	/*display: none;*/
 	float: right;
 	margin-top: 10px;
 }
@@ -199,6 +204,12 @@ p {
 }
 .next {
 	float: right;
+
+}
+
+.next,
+.continue {
+	font-size: 0.86rem;
 }
 
 .submit-answer,
@@ -216,7 +227,7 @@ p {
   margin: 12px 0;
   font-family: "Courier New";
   color: #ffffff;
-  font-size: 0.625rem;
+  font-size: 0.875rem;
   padding: 10px 0;
   text-decoration: none;
 }
@@ -333,6 +344,10 @@ p {
 
 	#questions {
 		font-size: 1em;
+	}
+
+	#questions h2 {
+		font-size: 1.15rem;
 	}
 	#question-container {
 	

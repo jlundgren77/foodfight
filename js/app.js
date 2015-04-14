@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 		$('#questions').fadeIn(2000);
         loadQuestion();
-		
+		$('#continue').hide();
 	}),
     
     //load new question on click of next question
@@ -14,9 +14,10 @@ $(document).ready(function(){
 		$('#question-container').fadeOut(500);
         $('#continue').fadeOut(500);
         hideInfo();
+        
         setTimeout(loadQuestion, 500);
         $('#question-container').fadeIn(1000);
-        $('#continue').fadeIn(1000);
+        // $('#continue').fadeIn(1000);
 		if (questionIndex == 10)
 		{
 			endGame();
@@ -27,7 +28,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		
 		checkAnswer($(this).text(), $(this));
-
+        $('#continue').show();
 	}),
 
 	$('#play-again').click(function(event){
@@ -49,6 +50,8 @@ $(document).ready(function(){
 		$('.question').text(questions[questionIndex].question);
 		$('.question-number').text("question " + (questionIndex + 1) + " of 10");
 		$('.num-correct').text("correct answers: " + correct);
+
+       
 		//loop through answers array and create buttons
 		for (answer in questions[questionIndex].answers) {
 			var question = questions[questionIndex].answers[answer];
@@ -60,7 +63,7 @@ $(document).ready(function(){
 		var answersList = document.getElementById('answers');
 		answersList.innerHTML = answersHTML;
         questionIndex = questionIndex + 1;
-       
+        
 	};
     
 	function endGame(){
@@ -108,7 +111,10 @@ $(document).ready(function(){
 		
 		}
 		showInfo();
+		
 	};
+
+	
     
     function showInfo(){
        var info = questions[questionIndex-1].information;
