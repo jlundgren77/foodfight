@@ -33,7 +33,7 @@ $(document).ready(function(){
 	$('#play-again').click(function(event){
 		event.preventDefault();
 		playAgain();
-		console.log('play again');
+		
 
 	})
 	
@@ -139,8 +139,8 @@ $(document).ready(function(){
 
 	function playAgain(){
 		resetScore();
-		$('#end').fadeOut(400);
-		$('#questions').fadeIn(500);
+		$('#end').hide();
+		$('#questions').fadeIn(2000);
 		
 	}
 		
