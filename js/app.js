@@ -119,7 +119,7 @@ $(document).ready(function(){
     function showInfo(){
        var info = questions[questionIndex-1].information;
        $('.question-info').text(info); 
-       $('.question-info').show();
+       $('.question-info').slideDown();
     };
 
     function hideInfo(){
